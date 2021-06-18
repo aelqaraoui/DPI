@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <title>Acceuil</title>
+
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+
+    <body>
+        <script src="script.js"></script>
+
+        <h1>Dossier Patient</h1>
+
+        <div id="fname">First name: </div><br>
+        <div id="lname">Last name: </div><br>
+        <div id="age">Age: </div><br>
+        <div id="cin">CIN: </div><br>
+        <div id="sex">Sex: </div><br>
+        <div id="observations">Observations: </div><br>
+
+        <h1>Radios</h1>
+        <div id="radios">
+        </div>
+
+        <form action="/upload-radios" method="post" enctype="multipart/form-data">
+            <input type="text" name="cin" id="cin-field" style="display: none;"/>
+            <h1 id="cin">Add new radio: </h1>
+            <input type="file" name="radio" /><br><br>
+            <input type="submit" name="Upload" />
+        </form>
+
+        <script>
+            window.onload = renderRadios;
+
+        </script>
+    </body>
+</html>

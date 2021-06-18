@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content=""><meta name="description" content=""><meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title></title>
+    <link rel="stylesheet" href="client/nicepage.css" media="screen">
+    <script class="u-script" type="text/javascript" src="client/jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="client/nicepage.js" defer=""></script>
+<meta name="generator" content="Nicepage 3.16.1, nicepage.com"></head>
+<body class="u-body u-hide-footer" data-style="blank" data-posts="" data-global-section-properties="{&quot;colorings&quot;:{&quot;light&quot;:[&quot;clean&quot;],&quot;colored&quot;:[&quot;clean&quot;],&quot;dark&quot;:[&quot;dark&quot;]}}" data-source="blank" data-page-sections-style="[]" data-page-coloring-types="{&quot;light&quot;:[&quot;clean&quot;],&quot;colored&quot;:[&quot;clean&quot;],&quot;dark&quot;:[&quot;dark&quot;]}" data-page-category="&quot;Basic&quot;" data-back-link="one-page-template" data-back-link-title="One Page Template" data-wp-back-link="wordpress-themes" data-wp-back-link-title="WordPress Theme" data-jm-back-link="joomla-templates" data-jm-back-link-title="Free Joomla Templates" data-created-with-link="html-website-builder" data-created-with-title="HTML Designer" data-wp-created-with-link="wordpress-website-builder" data-wp-created-with-title="WordPress Website Builder" data-jm-created-with-link="joomla-page-builder" data-jm-created-with-title="Joomla Page Builder"><section class="u-clearfix u-gradient u-block-bb71-41" custom-posts-hash="[]" data-style="blank" data-section-properties="{&quot;margin&quot;:&quot;none&quot;,&quot;stretch&quot;:true}" id="sec-ab44" data-source="blank" data-id="bb71">
+  <script src="script.js"></script>
+  <div class="u-clearfix u-sheet u-block-bb71-2"><h3 class="u-text u-block-bb71-12">Add symptoms</h3><p class="u-large-text u-text u-text-variant u-block-bb71-13">Please use the search or click on the body. Add as many symptoms as you can for the most accurate results.</p>
+    <div style="margin-top: 90px !important;" class="u-form u-block-bb71-3"><form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px" source="custom" name="form">
+        
+        
+        
+        <div class="u-form-group u-form-select u-block-bb71-4">
+    <div class="u-form-select-wrapper">
+
+      <label for="cars">Choose symptoms:</label>
+
+      <select name="symptoms" id="symptoms" style="width: 80%">
+      </select>
+
+      <button onclick="addSymptom()" class="u-border-1 u-border-black u-btn-submit u-button-style u-hover-black u-none u-text-black u-text-hover-white">Add</button>
+        
+    </div></div>
+    <div class="u-form-group">
+      <label for="textarea-98b8" class="u-form-control-hidden u-label u-block-bb71-8"></label>
+      <div id="symptomList" style="width: 100%; height: 200px">
+
+      </div>
+      <div id="prediction">
+        
+        
+      </div>
+    </div>
+    <div class="u-align-left u-form-group u-form-submit u-block-bb71-10">
+      <button onclick="predict()" class="u-border-1 u-border-black u-btn u-btn-submit u-button-style u-hover-black u-none u-text-black u-text-hover-white">Submit</button>
+      <input type="submit" value="submit" class="u-form-control-hidden">
+    </div>
+        
+        <input type="hidden" value="" name="recaptchaResponse">
+    </form></div><img class="u-image u-image-round u-preserve-proportions u-block-bb71-39" src="images/185138114-0.png?rand=00c4" alt=""><h4 class="u-text u-block-bb71-38">Medical check-up</h4><p class="u-large-text u-text u-text-variant u-block-bb71-40">Here is the list of radios, mri and scanner of the patient</p><div class="u-table u-table-responsive u-block-bb71-17">
+    <div class="hidden u-border-1 u-border-grey-dark-1 u-first-col-div u-grey-5 u-block-bb71-18"></div>
+    <div class="hidden u-border-1 u-border-black u-grey-5 u-table-header-style-div u-block-bb71-19"></div>
+    <div class="hidden u-border-1 u-border-grey-dark-1 u-grey-5 u-table-footer-style-div u-block-bb71-20"></div>
+    <div class="hidden u-border-1 u-border-grey-dark-1 u-table-body-style-div u-block-bb71-21"></div>
+    <table class="u-table-entity u-block-bb71-22">
+        <colgroup>
+            <col width="50%"><col width="50%">
+            
+            
+        </colgroup>
+        <thead class="u-palette-1-light-1 u-table-header u-text-black u-block-bb71-23">
+        
+        <tr style="height: 46px;"><th class="u-border-1 u-border-black u-table-cell u-block-bb71-28">Scanner,irm,radio...</th><th class="u-border-1 u-border-black u-table-cell u-block-bb71-29">Date</th></tr></thead>
+        <tbody id="radios" class="u-table-body u-block-bb71-27">
+        
+        
+        </tbody>
+        
+    </table>
+    <br><br>
+    <form action="/upload-radios" method="post" enctype="multipart/form-data">
+      <input type="text" name="cin" id="cin-field" style="display: none;"/>
+      <label id="radio-label">Add radio: </label>
+      <input type="file" name="radio" /><br><br>
+      <label id="date-label">Date: </label>
+      <input type="text" name="date" /><br><br>
+      <input type="submit" name="Upload" />
+  </form>
+</div></div>
+<style data-mode="XL">@media (min-width: 1200px) {
+  .u-block-bb71-41 {
+    background-image: linear-gradient(white, var(--palette-1-light-3));
+  }
+  .u-block-bb71-2 {
+    min-height: 1148px;
+  }
+  .u-block-bb71-12 {
+    margin-top: 19px;
+    margin-right: 930px;
+    margin-bottom: 0;
+    margin-left: 11px;
+  }
+  .u-block-bb71-13 {
+    margin-top: 19px;
+    margin-right: 588px;
+    margin-bottom: 0;
+    margin-left: 18px;
+  }
+  .u-block-bb71-3 {
+    height: 399px;
+    margin-top: 137px;
+    margin-right: 570px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-4 {
+    margin-left: 0;
+  }
+  .u-block-bb71-5 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-decoration: underline !important;
+  }
+  .u-block-bb71-6 {
+    font-weight: 400;
+  }
+  .u-block-bb71-7 {
+    margin-left: 0;
+  }
+  .u-block-bb71-8 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-decoration: underline !important;
+  }
+  .u-block-bb71-9 {
+    font-weight: 400;
+  }
+  .u-block-bb71-16 {
+    border-style: solid;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: -63px;
+    margin-right: 588px;
+    margin-bottom: 0;
+    margin-left: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 11px;
+    padding-right: 11px;
+  }
+  .u-block-bb71-39 {
+    width: 341px;
+    height: 537px;
+    animation-duration: 1000ms;
+    margin-top: -582px;
+    margin-right: 52px;
+    margin-bottom: 0;
+    margin-left: auto;
+  }
+  .u-block-bb71-38 {
+    font-weight: 700;
+    text-decoration: underline !important;
+    margin-top: 120px;
+    margin-right: 606px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-40 {
+    margin-top: 11px;
+    margin-right: 595px;
+    margin-bottom: 0;
+    margin-left: 11px;
+  }
+  .u-block-bb71-17 {
+    width: 969px;
+    margin-top: 21px;
+    margin-right: auto;
+    margin-bottom: 60px;
+    margin-left: 11px;
+  }
+  .u-block-bb71-23 {
+    background-image: none;
+    font-weight: 700;
+  }
+  .u-block-bb71-35 {
+    height: 46px;
+  }
+}</style><style data-mode="LG">@media (max-width: 1199px) and (min-width: 992px) {
+  .u-block-bb71-41 {
+    background-image: linear-gradient(white, var(--palette-1-light-3));
+  }
+  .u-block-bb71-2 {
+    min-height: 947px;
+  }
+  .u-block-bb71-12 {
+    margin-top: 19px;
+    margin-right: 741px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-13 {
+    margin-top: 19px;
+    margin-right: 406px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-3 {
+    height: 399px;
+    margin-top: 137px;
+    margin-right: 570px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-4 {
+    margin-left: 0;
+  }
+  .u-block-bb71-5 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-decoration: underline !important;
+  }
+  .u-block-bb71-6 {
+    font-weight: 400;
+  }
+  .u-block-bb71-7 {
+    margin-left: 0;
+  }
+  .u-block-bb71-8 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-decoration: underline !important;
+  }
+  .u-block-bb71-9 {
+    font-weight: 400;
+  }
+  .u-block-bb71-16 {
+    border-style: solid;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 11px;
+    padding-right: 11px;
+    margin-top: -63px;
+    margin-right: 388px;
+    margin-bottom: 0;
+    margin-left: auto;
+  }
+  .u-block-bb71-39 {
+    width: 341px;
+    height: 537px;
+    margin-top: -582px;
+    margin-right: 52px;
+    margin-bottom: 0;
+    margin-left: auto;
+    animation-duration: 1000ms;
+  }
+  .u-block-bb71-38 {
+    font-weight: 700;
+    text-decoration: underline !important;
+    margin-top: 120px;
+    margin-right: 406px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-40 {
+    margin-top: 11px;
+    margin-right: 406px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-17 {
+    width: 940px;
+    margin-top: 21px;
+    margin-right: auto;
+    margin-bottom: 60px;
+    margin-left: 0;
+  }
+  .u-block-bb71-23 {
+    background-image: none;
+    font-weight: 700;
+  }
+  .u-block-bb71-35 {
+    height: 46px;
+  }
+}</style><style data-mode="MD">@media (max-width: 991px) and (min-width: 768px) {
+  .u-block-bb71-41 {
+    background-image: linear-gradient(white, var(--palette-1-light-3));
+  }
+  .u-block-bb71-2 {
+    min-height: 725px;
+  }
+  .u-block-bb71-12 {
+    margin-top: 19px;
+    margin-right: 521px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-13 {
+    margin-top: 19px;
+    margin-right: 186px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-3 {
+    height: 399px;
+    margin-top: 137px;
+    margin-right: 350px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-4 {
+    margin-left: 0;
+  }
+  .u-block-bb71-5 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-decoration: underline !important;
+  }
+  .u-block-bb71-6 {
+    font-weight: 400;
+  }
+  .u-block-bb71-7 {
+    margin-left: 0;
+  }
+  .u-block-bb71-8 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-decoration: underline !important;
+  }
+  .u-block-bb71-9 {
+    font-weight: 400;
+  }
+  .u-block-bb71-16 {
+    border-style: solid;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 11px;
+    padding-right: 11px;
+    margin-top: -63px;
+    margin-right: 168px;
+    margin-bottom: 0;
+    margin-left: auto;
+  }
+  .u-block-bb71-39 {
+    width: 341px;
+    height: 537px;
+    margin-top: -582px;
+    margin-right: 52px;
+    margin-bottom: 0;
+    margin-left: auto;
+    animation-duration: 1000ms;
+  }
+  .u-block-bb71-38 {
+    font-weight: 700;
+    text-decoration: underline !important;
+    margin-top: 120px;
+    margin-right: 186px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-40 {
+    margin-top: 11px;
+    margin-right: 186px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-17 {
+    width: 720px;
+    margin-top: 21px;
+    margin-right: auto;
+    margin-bottom: 60px;
+    margin-left: 0;
+  }
+  .u-block-bb71-23 {
+    background-image: none;
+    font-weight: 700;
+  }
+  .u-block-bb71-35 {
+    height: 46px;
+  }
+}</style><style data-mode="SM">@media (max-width: 767px) and (min-width: 576px) {
+  .u-block-bb71-41 {
+    background-image: linear-gradient(white, var(--palette-1-light-3));
+  }
+  .u-block-bb71-2 {
+    min-height: 544px;
+  }
+  .u-block-bb71-12 {
+    margin-top: 19px;
+    margin-right: 341px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-13 {
+    margin-top: 19px;
+    margin-right: 6px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-3 {
+    height: 399px;
+    margin-top: 137px;
+    margin-right: 170px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-4 {
+    margin-left: 0;
+  }
+  .u-block-bb71-5 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-decoration: underline !important;
+  }
+  .u-block-bb71-6 {
+    font-weight: 400;
+  }
+  .u-block-bb71-7 {
+    margin-left: 0;
+  }
+  .u-block-bb71-8 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-decoration: underline !important;
+  }
+  .u-block-bb71-9 {
+    font-weight: 400;
+  }
+  .u-block-bb71-16 {
+    border-style: solid;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 11px;
+    padding-right: 11px;
+    margin-top: -63px;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+  }
+  .u-block-bb71-39 {
+    width: 341px;
+    height: 537px;
+    margin-top: -582px;
+    margin-right: 52px;
+    margin-bottom: 0;
+    margin-left: auto;
+    animation-duration: 1000ms;
+  }
+  .u-block-bb71-38 {
+    font-weight: 700;
+    text-decoration: underline !important;
+    margin-top: 120px;
+    margin-right: 6px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-40 {
+    margin-top: 11px;
+    margin-right: 6px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-17 {
+    width: 540px;
+    margin-top: 21px;
+    margin-right: auto;
+    margin-bottom: 60px;
+    margin-left: 0;
+  }
+  .u-block-bb71-23 {
+    background-image: none;
+    font-weight: 700;
+  }
+  .u-block-bb71-35 {
+    height: 46px;
+  }
+}</style><style data-mode="XS">@media (max-width: 575px) {
+  .u-block-bb71-41 {
+    background-image: linear-gradient(white, var(--palette-1-light-3));
+  }
+  .u-block-bb71-2 {
+    min-height: 343px;
+  }
+  .u-block-bb71-12 {
+    margin-top: 19px;
+    margin-right: 141px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-13 {
+    margin-top: 19px;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-3 {
+    height: 399px;
+    margin-top: 137px;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-4 {
+    margin-left: 0;
+  }
+  .u-block-bb71-5 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-decoration: underline !important;
+  }
+  .u-block-bb71-6 {
+    font-weight: 400;
+  }
+  .u-block-bb71-7 {
+    margin-left: 0;
+  }
+  .u-block-bb71-8 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-decoration: underline !important;
+  }
+  .u-block-bb71-9 {
+    font-weight: 400;
+  }
+  .u-block-bb71-16 {
+    border-style: solid;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 11px;
+    padding-right: 11px;
+    margin-top: -63px;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+  }
+  .u-block-bb71-39 {
+    width: 340px;
+    height: 535px;
+    margin-top: -582px;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    animation-duration: 1000ms;
+  }
+  .u-block-bb71-38 {
+    font-weight: 700;
+    text-decoration: underline !important;
+    margin-top: 120px;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-40 {
+    margin-top: 11px;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-17 {
+    width: 340px;
+    margin-top: 21px;
+    margin-right: auto;
+    margin-bottom: 60px;
+    margin-left: 0;
+  }
+  .u-block-bb71-23 {
+    background-image: none;
+    font-weight: 700;
+  }
+  .u-block-bb71-35 {
+    height: 46px;
+  }
+}</style></section><section class="u-clearfix u-gradient u-block-555b-54" custom-posts-hash="[]" data-style="blank" data-section-properties="{&quot;margin&quot;:&quot;none&quot;,&quot;stretch&quot;:true}" id="sec-4688" data-source="Blank" data-id="555b">
+  <div class="u-clearfix u-sheet u-block-555b-2"><h4 class="u-text u-text-default u-block-555b-38">List of <span style="font-weight: 700;">​</span>doctor's observations:</h4><div class="u-table u-table-responsive u-block-555b-3">
+    <div class="hidden u-border-1 u-border-grey-dark-1 u-first-col-div u-grey-5 u-block-555b-4"></div>
+    <div class="hidden u-border-1 u-border-grey-dark-1 u-grey-5 u-table-header-style-div u-block-555b-5"></div>
+    <div class="hidden u-border-1 u-border-grey-dark-1 u-grey-5 u-table-footer-style-div u-block-555b-6"></div>
+    <div class="hidden u-border-1 u-border-grey-dark-1 u-table-body-style-div u-block-555b-7"></div>
+    <table class="u-table-entity u-block-555b-8">
+        <colgroup>
+            <col width="25%">
+            <col width="25%">
+            <col width="25%"><col width="25%">
+        </colgroup>
+        <thead class="u-palette-1-light-1 u-table-header u-text-black u-block-555b-9">
+        
+        <tr style="height: 46px;"><th class="u-border-1 u-border-grey-dark-1 u-table-cell u-block-555b-17">Doctor</th><th class="u-border-1 u-border-grey-dark-1 u-table-cell u-block-555b-18">Speciality</th><th class="u-border-1 u-border-grey-dark-1 u-table-cell u-block-555b-19">Observation,prescription...</th><th class="u-border-1 u-border-grey-dark-1 u-table-cell u-block-555b-20">Date</th></tr></thead>
+        <tbody id="obsv-list" class="u-table-body u-block-555b-16">
+        
+        </tbody>
+        
+    </table>
+</div><div class="u-form u-block-555b-39"><form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px" source="custom" name="form-1">
+        <input type="hidden" id="siteId" name="siteId" value="708927836">
+        <input type="hidden" id="pageId" name="pageId" value="185138114">
+        <div class="u-form-group u-block-555b-47">
+          <label for="text-5ccf" class="u-label u-block-555b-45">Doctor's ID</label>
+          <input type="text" placeholder="Enter the id of the doctor" id="doctor-id" name="text" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white u-block-555b-48" required="required">
+        </div>
+        <div class="u-form-group u-block-555b-49">
+          <label for="text-1502" class="u-label u-block-555b-46">Speciality</label>
+          <input type="text" placeholder="" id="speciality" name="text-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white u-block-555b-50">
+        </div>
+        <div class="u-form-group u-block-555b-52">
+          <label for="text-a55a" class="u-label u-block-555b-51">Date</label>
+          <input type="text" placeholder="" id="date" name="text-2" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white u-block-555b-53">
+        </div>
+        <div class="u-form-group u-form-message u-block-555b-40">
+          <label for="message-a5a3" class="u-label u-block-555b-41">Add observation,prescription..</label>
+          <textarea placeholder="Enter your message" rows="4" cols="50" id="observation" name="message" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white u-block-555b-42" required=""></textarea>
+        </div>
+        <div class="u-align-left u-form-group u-form-submit u-block-555b-43">
+          <button onclick="addObservation()" class="u-border-1 u-border-black u-btn u-btn-submit u-button-style u-hover-black u-none u-text-black u-text-hover-white u-block-70d1-30">Submit</button>
+            <input type="submit" value="submit" class="u-form-control-hidden">
+        </div>
+        <input type="hidden" value="" name="recaptchaResponse">
+    </form></div><span class="u-icon u-icon-circle u-text-palette-1-base u-block-555b-55"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 53.255 53.255" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-4954"></use></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 53.255 53.255" x="0px" y="0px" id="svg-4954" style="enable-background:new 0 0 53.255 53.255;" data-color=""><path style="fill:#D75A4A;" d="M39.598,2.343c3.124-3.124,8.19-3.124,11.314,0s3.124,8.19,0,11.314L39.598,2.343z"></path><polygon style="fill:#ED8A19;" points="42.426,17.899 16.512,43.814 15.982,48.587 44.548,20.02 44.548,20.02 "></polygon><polygon style="fill:#ED8A19;" points="10.325,42.93 15.098,42.4 41.012,16.485 36.77,12.243 10.855,38.157 "></polygon><polygon style="fill:#ED8A19;" points="35.356,10.829 33.234,8.707 33.234,8.707 4.668,37.273 9.441,36.743 "></polygon><polygon style="fill:#C7CAC7;" points="48.79,15.778 48.79,15.778 50.912,13.657 39.598,2.343 37.476,4.465 37.477,4.465 "></polygon><polygon style="fill:#C7CAC7;" points="36.062,5.879 36.062,5.879 34.648,7.293 34.648,7.293 45.962,18.606 45.962,18.606 
+	47.376,17.192 47.376,17.192 "></polygon><path style="fill:#FBCE9D;" d="M14.424,44.488l-5.122,0.569c-0.036,0.004-0.073,0.006-0.109,0.006c0,0-0.001,0-0.001,0H9.192H9.192
+	c-0.001,0-0.001,0-0.001,0c-0.036,0-0.073-0.002-0.109-0.006c-0.039-0.004-0.071-0.026-0.108-0.035
+	c-0.072-0.017-0.141-0.035-0.207-0.067c-0.05-0.024-0.093-0.053-0.138-0.084c-0.057-0.04-0.109-0.083-0.157-0.134
+	c-0.038-0.04-0.069-0.081-0.1-0.127c-0.038-0.057-0.069-0.116-0.095-0.181c-0.022-0.054-0.038-0.107-0.05-0.165
+	c-0.007-0.032-0.024-0.059-0.028-0.092c-0.004-0.038,0.01-0.073,0.01-0.11c0-0.038-0.014-0.072-0.01-0.11l0.569-5.122l-5.122,0.569
+	c-0.037,0.004-0.075,0.006-0.111,0.006c-0.079,0-0.152-0.024-0.227-0.042L0.442,51.399l2.106-2.106c0.391-0.391,1.023-0.391,1.414,0
+	s0.391,1.023,0,1.414l-2.106,2.106l12.03-2.864c-0.026-0.109-0.043-0.222-0.03-0.339L14.424,44.488z"></path><path style="fill:#38454F;" d="M3.962,49.293c-0.391-0.391-1.023-0.391-1.414,0l-2.106,2.106L0,53.255l1.856-0.442l2.106-2.106
+	C4.352,50.316,4.352,49.684,3.962,49.293z"></path><polygon style="fill:#F2ECBF;" points="48.79,15.778 37.477,4.465 37.476,4.465 36.062,5.879 36.062,5.879 47.376,17.192 
+	47.376,17.192 48.79,15.778 "></polygon><path style="fill:#EBBA16;" d="M41.012,16.485L15.098,42.4l-4.773,0.53l0.53-4.773L36.77,12.243l-1.414-1.414L9.441,36.743
+	l-4.773,0.53l-1.133,1.133l-0.228,0.957c0.075,0.018,0.147,0.042,0.227,0.042c0.036,0,0.074-0.002,0.111-0.006l5.122-0.569
+	l-0.569,5.122c-0.004,0.038,0.01,0.073,0.01,0.11c0,0.038-0.014,0.072-0.01,0.11c0.004,0.033,0.021,0.06,0.028,0.092
+	c0.012,0.057,0.029,0.112,0.05,0.165c0.026,0.064,0.057,0.124,0.095,0.181c0.03,0.045,0.063,0.088,0.1,0.127
+	c0.047,0.05,0.1,0.094,0.157,0.134c0.044,0.031,0.089,0.061,0.138,0.084c0.065,0.031,0.135,0.05,0.207,0.067
+	c0.038,0.009,0.069,0.03,0.108,0.035c0.036,0.004,0.072,0.006,0.109,0.006h0.001h0h0.001h0.001c0,0,0.001,0,0.001,0h0
+	c0.035,0,0.072-0.002,0.109-0.006l5.122-0.569l-0.569,5.122c-0.013,0.118,0.004,0.23,0.03,0.339l0.963-0.229l1.133-1.132l0.53-4.773
+	l25.914-25.915L41.012,16.485z"></path><polygon style="fill:#F2ECBF;" points="45.962,18.606 34.648,7.293 34.648,7.293 33.234,8.707 33.234,8.707 35.356,10.829 
+	36.77,12.243 41.012,16.485 42.426,17.899 44.548,20.02 44.548,20.02 45.962,18.606 "></polygon></svg></span></div>
+<style data-mode="XL">@media (min-width: 1200px) {
+  .u-block-555b-54 {
+    background-image: linear-gradient(var(--palette-1-light-3), var(--palette-1-light-2));
+  }
+  .u-block-555b-2 {
+    min-height: 1700px;
+  }
+  .u-block-555b-38 {
+    font-weight: 700;
+    text-decoration: underline !important;
+    margin-top: 59px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-555b-3 {
+    width: 1089px;
+    margin-top: 64px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-555b-9 {
+    background-image: none;
+    font-weight: 700;
+  }
+  .u-block-555b-33 {
+    height: 46px;
+  }
+  .u-block-555b-39 {
+    height: 199px;
+    margin-top: 83px;
+    margin-right: 570px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-555b-47 {
+    margin-left: 0;
+  }
+  .u-block-555b-45 {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .u-block-555b-49 {
+    margin-left: 0;
+  }
+  .u-block-555b-46 {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .u-block-555b-52 {
+    margin-left: 0;
+  }
+  .u-block-555b-51 {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .u-block-555b-41 {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .u-block-555b-55 {
+    height: 64px;
+    width: 64px;
+    margin-top: -166px;
+    margin-right: 506px;
+    margin-bottom: 60px;
+    margin-left: auto;
+  }
+}</style><style data-mode="LG">@media (max-width: 1199px) and (min-width: 992px) {
+  .u-block-555b-54 {
+    background-image: linear-gradient(var(--palette-1-light-3), var(--palette-1-light-2));
+  }
+  .u-block-555b-2 {
+    min-height: 1700px;
+  }
+  .u-block-555b-38 {
+    margin-top: 59px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+    font-weight: 700;
+    text-decoration: underline !important;
+  }
+  .u-block-555b-3 {
+    width: 940px;
+    margin-top: 64px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-555b-9 {
+    background-image: none;
+    font-weight: 700;
+  }
+  .u-block-555b-33 {
+    height: 46px;
+  }
+  .u-block-555b-39 {
+    height: 199px;
+    margin-top: 83px;
+    margin-right: 370px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-555b-47 {
+    margin-left: 0;
+  }
+  .u-block-555b-45 {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .u-block-555b-49 {
+    margin-left: 0;
+  }
+  .u-block-555b-46 {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .u-block-555b-52 {
+    margin-left: 0;
+  }
+  .u-block-555b-51 {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .u-block-555b-41 {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .u-block-555b-55 {
+    height: 64px;
+    width: 64px;
+    margin-top: -166px;
+    margin-right: 417px;
+    margin-bottom: 60px;
+    margin-left: auto;
+  }
+}</style><style data-mode="MD">@media (max-width: 991px) and (min-width: 768px) {
+  .u-block-555b-54 {
+    background-image: linear-gradient(var(--palette-1-light-3), var(--palette-1-light-2));
+  }
+  .u-block-555b-2 {
+    min-height: 1700px;
+  }
+  .u-block-555b-38 {
+    margin-top: 59px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+    font-weight: 700;
+    text-decoration: underline !important;
+  }
+  .u-block-555b-3 {
+    width: 720px;
+    margin-top: 64px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-555b-9 {
+    background-image: none;
+    font-weight: 700;
+  }
+  .u-block-555b-33 {
+    height: 46px;
+  }
+  .u-block-555b-39 {
+    height: 199px;
+    margin-top: 83px;
+    margin-right: 150px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-555b-47 {
+    margin-left: 0;
+  }
+  .u-block-555b-45 {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .u-block-555b-49 {
+    margin-left: 0;
+  }
+  .u-block-555b-46 {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .u-block-555b-52 {
+    margin-left: 0;
+  }
+  .u-block-555b-51 {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .u-block-555b-41 {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .u-block-555b-55 {
+    height: 64px;
+    width: 64px;
+    margin-top: -166px;
+    margin-right: 319px;
+    margin-bottom: 60px;
+    margin-left: auto;
+  }
+}</style><style data-mode="SM">@media (max-width: 767px) and (min-width: 576px) {
+  .u-block-555b-54 {
+    background-image: linear-gradient(var(--palette-1-light-3), var(--palette-1-light-2));
+  }
+  .u-block-555b-2 {
+    min-height: 1700px;
+  }
+  .u-block-555b-38 {
+    margin-top: 59px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+    font-weight: 700;
+    text-decoration: underline !important;
+  }
+  .u-block-555b-3 {
+    width: 540px;
+    margin-top: 64px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-555b-9 {
+    background-image: none;
+    font-weight: 700;
+  }
+  .u-block-555b-33 {
+    height: 46px;
+  }
+  .u-block-555b-39 {
+    height: 199px;
+    margin-top: 83px;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-555b-47 {
+    margin-left: 0;
+  }
+  .u-block-555b-45 {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .u-block-555b-49 {
+    margin-left: 0;
+  }
+  .u-block-555b-46 {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .u-block-555b-52 {
+    margin-left: 0;
+  }
+  .u-block-555b-51 {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .u-block-555b-41 {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .u-block-555b-55 {
+    height: 64px;
+    width: 64px;
+    margin-top: -166px;
+    margin-right: 239px;
+    margin-bottom: 60px;
+    margin-left: auto;
+  }
+}</style><style data-mode="XS">@media (max-width: 575px) {
+  .u-block-555b-54 {
+    background-image: linear-gradient(var(--palette-1-light-3), var(--palette-1-light-2));
+  }
+  .u-block-555b-2 {
+    min-height: 1700px;
+  }
+  .u-block-555b-38 {
+    margin-top: 59px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+    font-weight: 700;
+    text-decoration: underline !important;
+  }
+  .u-block-555b-3 {
+    width: 340px;
+    margin-top: 64px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-555b-9 {
+    background-image: none;
+    font-weight: 700;
+  }
+  .u-block-555b-33 {
+    height: 46px;
+  }
+  .u-block-555b-39 {
+    height: 199px;
+    margin-top: 83px;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-555b-47 {
+    margin-left: 0;
+  }
+  .u-block-555b-45 {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .u-block-555b-49 {
+    margin-left: 0;
+  }
+  .u-block-555b-46 {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .u-block-555b-52 {
+    margin-left: 0;
+  }
+  .u-block-555b-51 {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .u-block-555b-41 {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .u-block-555b-55 {
+    height: 64px;
+    width: 64px;
+    margin-top: -166px;
+    margin-right: 150px;
+    margin-bottom: 60px;
+    margin-left: auto;
+  }
+}</style></section>
+<script>
+  window.onload = renderDoc;
+</script>
+</body></html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content=""><meta name="description" content=""><meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title></title>
+    <link rel="stylesheet" href="client/nicepage.css" media="screen">
+    <script class="u-script" type="text/javascript" src="client/jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="client/nicepage.js" defer=""></script>
+<meta name="generator" content="Nicepage 3.16.1, nicepage.com"></head>
+<body class="u-body u-hide-footer" data-style="blank" data-posts="" data-global-section-properties="{&quot;colorings&quot;:{&quot;light&quot;:[&quot;clean&quot;],&quot;colored&quot;:[&quot;clean&quot;],&quot;dark&quot;:[&quot;dark&quot;]}}" data-source="blank" data-page-sections-style="[]" data-page-coloring-types="{&quot;light&quot;:[&quot;clean&quot;],&quot;colored&quot;:[&quot;clean&quot;],&quot;dark&quot;:[&quot;dark&quot;]}" data-page-category="&quot;Basic&quot;" data-back-link="one-page-template" data-back-link-title="One Page Template" data-wp-back-link="wordpress-themes" data-wp-back-link-title="WordPress Theme" data-jm-back-link="joomla-templates" data-jm-back-link-title="Free Joomla Templates" data-created-with-link="html-website-builder" data-created-with-title="HTML Designer" data-wp-created-with-link="wordpress-website-builder" data-wp-created-with-title="WordPress Website Builder" data-jm-created-with-link="joomla-page-builder" data-jm-created-with-title="Joomla Page Builder"><section class="u-clearfix u-palette-1-light-3 u-block-bb71-1" custom-posts-hash="[]" data-style="blank" data-section-properties="{&quot;margin&quot;:&quot;none&quot;,&quot;stretch&quot;:true}" id="sec-ab44" data-source="blank" data-id="bb71">
+  <script src="script.js"></script>
+  <div class="u-clearfix u-sheet u-block-bb71-2"><h3 class="u-text u-block-bb71-12">Add symptoms</h3><p class="u-large-text u-text u-text-variant u-block-bb71-13">Please use the search or click on the body. Add as many symptoms as you can for the most accurate results.</p>
+    <div style="margin-top: 90px !important;" class="u-form u-block-bb71-3"><form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px" source="custom" name="form">
+        
+        
+        
+        <div class="u-form-group u-form-select u-block-bb71-4">
+    <div class="u-form-select-wrapper">
+
+      <label for="cars">Choose symptoms:</label>
+
+      <select name="symptoms" id="symptoms" style="width: 80%">
+      </select>
+
+      <button onclick="addSymptom()" class="u-border-1 u-border-black u-btn-submit u-button-style u-hover-black u-none u-text-black u-text-hover-white">Add</button>
+        
+    </div></div>
+    <div class="u-form-group">
+      <label for="textarea-98b8" class="u-form-control-hidden u-label u-block-bb71-8"></label>
+      <div id="symptomList" style="width: 100%; height: 200px">
+
+      </div>
+      <div id="prediction">
+        
+        
+      </div>
+    </div>
+    <div class="u-align-left u-form-group u-form-submit u-block-bb71-10">
+      <button onclick="predict()" class="u-border-1 u-border-black u-btn u-btn-submit u-button-style u-hover-black u-none u-text-black u-text-hover-white">Submit</button>
+      <input type="submit" value="submit" class="u-form-control-hidden">
+    </div>
+       
+        <input type="hidden" value="" name="recaptchaResponse">
+    </form></div><img class="u-image u-image-default u-block-bb71-15" src="images/dff.jpg?rand=1d8c" alt="" data-image-width="900" data-image-height="820"></div>
+<style data-mode="XL">@media (min-width: 1200px) {
+  .u-block-bb71-1 {
+    background-image: none;
+  }
+  .u-block-bb71-2 {
+    min-height: 1035px;
+  }
+  .u-block-bb71-12 {
+    margin-top: 19px;
+    margin-right: 930px;
+    margin-bottom: 0;
+    margin-left: 11px;
+  }
+  .u-block-bb71-13 {
+    margin-top: 19px;
+    margin-right: 588px;
+    margin-bottom: 0;
+    margin-left: 18px;
+  }
+  .u-block-bb71-3 {
+    height: 399px;
+    margin-top: 137px;
+    margin-right: 570px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-4 {
+    margin-left: 0;
+  }
+  .u-block-bb71-5 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-decoration: underline !important;
+  }
+  .u-block-bb71-6 {
+    font-weight: 400;
+  }
+  .u-block-bb71-7 {
+    margin-left: 0;
+  }
+  .u-block-bb71-8 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-decoration: underline !important;
+  }
+  .u-block-bb71-9 {
+    font-weight: 400;
+  }
+  .u-block-bb71-15 {
+    width: 570px;
+    height: 674px;
+    margin-top: -674px;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+  }
+  .u-block-bb71-16 {
+    border-style: solid;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: -63px;
+    margin-right: 588px;
+    margin-bottom: 60px;
+    margin-left: auto;
+    padding-top: 10px;
+    padding-right: 11px;
+    padding-bottom: 10px;
+    padding-left: 11px;
+  }
+}</style><style data-mode="LG">@media (max-width: 1199px) and (min-width: 992px) {
+  .u-block-bb71-1 {
+    background-image: none;
+  }
+  .u-block-bb71-2 {
+    min-height: 916px;
+  }
+  .u-block-bb71-12 {
+    margin-top: 19px;
+    margin-right: 741px;
+    margin-bottom: 0;
+    margin-left: 11px;
+  }
+  .u-block-bb71-13 {
+    margin-top: 19px;
+    margin-right: 405px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-3 {
+    height: 399px;
+    margin-top: 137px;
+    margin-right: 570px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-4 {
+    margin-left: 0;
+  }
+  .u-block-bb71-5 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-decoration: underline !important;
+  }
+  .u-block-bb71-6 {
+    font-weight: 400;
+  }
+  .u-block-bb71-7 {
+    margin-left: 0;
+  }
+  .u-block-bb71-8 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-decoration: underline !important;
+  }
+  .u-block-bb71-9 {
+    font-weight: 400;
+  }
+  .u-block-bb71-15 {
+    width: 570px;
+    height: 674px;
+    margin-top: -673px;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+  }
+  .u-block-bb71-16 {
+    border-style: solid;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 56px;
+    margin-right: 388px;
+    margin-bottom: 60px;
+    margin-left: auto;
+    padding-top: 10px;
+    padding-right: 11px;
+    padding-bottom: 10px;
+    padding-left: 11px;
+  }
+}</style><style data-mode="MD">@media (max-width: 991px) and (min-width: 768px) {
+  .u-block-bb71-1 {
+    background-image: none;
+  }
+  .u-block-bb71-2 {
+    min-height: 786px;
+  }
+  .u-block-bb71-12 {
+    margin-top: 19px;
+    margin-right: 521px;
+    margin-bottom: 0;
+    margin-left: 11px;
+  }
+  .u-block-bb71-13 {
+    margin-top: 19px;
+    margin-right: 185px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-3 {
+    height: 399px;
+    margin-top: 137px;
+    margin-right: 350px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-4 {
+    margin-left: 0;
+  }
+  .u-block-bb71-5 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-decoration: underline !important;
+  }
+  .u-block-bb71-6 {
+    font-weight: 400;
+  }
+  .u-block-bb71-7 {
+    margin-left: 0;
+  }
+  .u-block-bb71-8 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-decoration: underline !important;
+  }
+  .u-block-bb71-9 {
+    font-weight: 400;
+  }
+  .u-block-bb71-15 {
+    width: 570px;
+    height: 674px;
+    margin-top: -673px;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+  }
+  .u-block-bb71-16 {
+    border-style: solid;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 56px;
+    margin-right: 168px;
+    margin-bottom: 60px;
+    margin-left: auto;
+    padding-top: 10px;
+    padding-right: 11px;
+    padding-bottom: 10px;
+    padding-left: 11px;
+  }
+}</style><style data-mode="SM">@media (max-width: 767px) and (min-width: 576px) {
+  .u-block-bb71-1 {
+    background-image: none;
+  }
+  .u-block-bb71-2 {
+    min-height: 680px;
+  }
+  .u-block-bb71-12 {
+    margin-top: 19px;
+    margin-right: 341px;
+    margin-bottom: 0;
+    margin-left: 11px;
+  }
+  .u-block-bb71-13 {
+    margin-top: 19px;
+    margin-right: 5px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-3 {
+    height: 399px;
+    margin-top: 137px;
+    margin-right: 170px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-4 {
+    margin-left: 0;
+  }
+  .u-block-bb71-5 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-decoration: underline !important;
+  }
+  .u-block-bb71-6 {
+    font-weight: 400;
+  }
+  .u-block-bb71-7 {
+    margin-left: 0;
+  }
+  .u-block-bb71-8 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-decoration: underline !important;
+  }
+  .u-block-bb71-9 {
+    font-weight: 400;
+  }
+  .u-block-bb71-15 {
+    width: 540px;
+    height: 638px;
+    margin-top: -673px;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+  }
+  .u-block-bb71-16 {
+    border-style: solid;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 56px;
+    margin-right: 0;
+    margin-bottom: 60px;
+    margin-left: auto;
+    padding-top: 10px;
+    padding-right: 11px;
+    padding-bottom: 10px;
+    padding-left: 11px;
+  }
+}</style><style data-mode="XS">@media (max-width: 575px) {
+  .u-block-bb71-1 {
+    background-image: none;
+  }
+  .u-block-bb71-2 {
+    min-height: 562px;
+  }
+  .u-block-bb71-12 {
+    margin-top: 19px;
+    margin-right: 141px;
+    margin-bottom: 0;
+    margin-left: 11px;
+  }
+  .u-block-bb71-13 {
+    margin-top: 19px;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-3 {
+    height: 399px;
+    margin-top: 137px;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .u-block-bb71-4 {
+    margin-left: 0;
+  }
+  .u-block-bb71-5 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-decoration: underline !important;
+  }
+  .u-block-bb71-6 {
+    font-weight: 400;
+  }
+  .u-block-bb71-7 {
+    margin-left: 0;
+  }
+  .u-block-bb71-8 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-decoration: underline !important;
+  }
+  .u-block-bb71-9 {
+    font-weight: 400;
+  }
+  .u-block-bb71-15 {
+    width: 340px;
+    height: 402px;
+    margin-top: -673px;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+  }
+  .u-block-bb71-16 {
+    border-style: solid;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 56px;
+    margin-right: 0;
+    margin-bottom: 60px;
+    margin-left: auto;
+    padding-top: 10px;
+    padding-right: 11px;
+    padding-bottom: 10px;
+    padding-left: 11px;
+  }
+}</style></section>
+<script>
+  window.onload = renderSymptoms;
+</script>
+</body></html>
